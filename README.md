@@ -1,1 +1,1 @@
-# 88Bryan.github.io
+CS338 Web Development Project
