@@ -16,13 +16,13 @@
                     <a class="nav-link" style="color:#21ffa8" href="#">Log-out<span class="sr-only"></span></a>
                 </li>
             </ul>
-			
+			<!--
 			<div class="mx-auto order-0">
 				<a class="navbar-brand mx-auto" style="color:Red" href="#">Home Page (current)</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
 				<span class="navbar-toggler-icon"></span>
 				</button>
-			</div>
+			</div> -->
 			
             <ul class="nav justify-content-end">
                 <li class="nav-brand">
@@ -39,8 +39,8 @@
 </head>
 	<body>
 		<br>
-		<center><h4>Welcome to our site!</h4>
-		<h6>Please select any goats that interest you from our headlines!</h6></center>
+		<center><h4>Welcome to our Main Page!</h4>
+		<h5>Please select any goats that interest you from our headlines!</h5></center>
 	  
 	  <!--<style>
 		h6{text-align: center;}
@@ -63,9 +63,10 @@
 				  <br>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Purchase</button>
+                      <input type="button" class="btn btn-outline-success" onclick="goat1Button()" value="Purchase" id="goat1"></input>
+					  <input type="button" class="btn btn-outline-danger" onclick="undo1()" value="Reset Status" id="reset1"></button>
                     </div>
-                    <small class="text-muted">Option 1</small>
+                    <small class="text-muted">Goat 1</small>
                   </div>
                 </div>
               </div>
@@ -78,14 +79,15 @@
                   <ul class="list-group list-group-flush">
 					<li class="list-group-item">Name:  Rose</li>
 					<li class="list-group-item">Price:  $2,500</li>
-					<li class="list-group-item">Age:  3</li>
+					<li class="list-group-item">Age:  12</li>
 				  </ul>
 				  <br>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Purchase</button>
+                      <input type="button" class="btn btn-outline-success" onclick="goat2Button()" value="Purchase" id="goat2"></input>
+					  <input type="button" class="btn btn-outline-danger" onclick="undo2()" value="Reset Status" id="reset2"></button>
                     </div>
-                    <small class="text-muted">Option 2</small>
+                    <small class="text-muted">Goat 2</small>
                   </div>
                 </div>
               </div>
@@ -97,14 +99,15 @@
                   <ul class="list-group list-group-flush">
 					<li class="list-group-item">Name:  Rosario</li>
 					<li class="list-group-item">Price:  $1,250</li>
-					<li class="list-group-item">Age: 12</li>
+					<li class="list-group-item">Age: 3</li>
 				  </ul>
 				  <br>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Purchase</button>
+                      <input type="button" class="btn btn-outline-success" onclick="goat3Button()" value="Purchase" id="goat3"></input>
+					  <input type="button" class="btn btn-outline-danger" onclick="undo3()" value="Reset Status" id="reset3"></button>
                     </div>
-                    <small class="text-muted">Option 3</small>
+                    <small class="text-muted">Goat 3</small>
                   </div>
                 </div>
               </div>
@@ -114,4 +117,69 @@
       </div>
     </main>
 	</body>
+	
+	<script>
+		function goat1Button() {
+			
+			var elem = document.getElementById("goat1");
+			if (elem.value=="Purchase"){ 
+				elem.value = "Placed in Interest";
+			} else {
+				elem.value = "Placed in Interest";
+			}
+			
+			/* Used for undo attribute being set a hidden default
+			let element = document.getElementById("reset1");
+			let hidden = element.getAttribute("hidden");
+			
+			if (!hidden) {
+				element.setAttribute("hidden", "hidden");
+			} else {
+				element.removeAttribute("hidden");
+			} */
+		}
+		
+		function undo1(){
+			var elem = document.getElementById("goat1");
+			if (elem.value=="Placed in Interest"){ 
+				elem.value = "Purchase";
+			} else {
+				elem.value = "Purchase";
+			}
+		}
+		
+		function goat2Button() {
+			//Include an undo?
+			var elem = document.getElementById("goat2");
+			if (elem.value=="Purchase") elem.value = "Placed in Interest";
+			else {elem.value = "Placed in Interest";}
+		}
+		
+		function undo2(){
+			var elem = document.getElementById("goat2");
+			if (elem.value=="Placed in Interest"){ 
+				elem.value = "Purchase";
+			} else {
+				elem.value = "Purchase";
+			}
+		}
+		
+		function goat3Button() {
+			//Include an undo?
+			var elem = document.getElementById("goat3");
+			if (elem.value=="Purchase") elem.value = "Placed in Interest";
+			else {elem.value = "Placed in Interest";}
+		}
+		
+		function undo3(){
+			var elem = document.getElementById("goat3");
+			if (elem.value=="Placed in Interest"){ 
+				elem.value = "Purchase";
+			} else {
+				elem.value = "Purchase";
+			}
+		}
+		
+	</script>
+	
 </html>
