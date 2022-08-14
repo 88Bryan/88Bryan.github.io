@@ -81,7 +81,6 @@
         fetch(`/goat/${id}`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data[0]);
                 let img = document.getElementById("g_img");
                 img.setAttribute("src", `/${data[0].image}`);
                 let name = document.getElementById("name");
