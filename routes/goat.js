@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 const { selectQuery, createAndInsertTable } = require('../db/database');
 
@@ -21,6 +22,10 @@ router.get('/:id', async(req, res) => {
         console.error(err);
         res.send({ "error": e });
     }
+})
+
+router.get('/details/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/details.html'));
 })
 
 router.post('/add', async(req, res) => {
