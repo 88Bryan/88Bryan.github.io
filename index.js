@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const path = require('path');
+
+const PORT = 5000;
 
 app.use(express.json());
 app.use(cors());
@@ -13,6 +16,10 @@ app.use('/auth', auth);
 const goat = require('./routes/goat');
 app.use('/goat', goat);
 
-app.listen(5000, () => {
-    console.log("Listening at http://localhost:5000");
+app.get('/cart', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/cart.html'));
+})
+
+app.listen(PORT, () => {
+    console.log(`Listening at http://localhost:${PORT}`);
 });
