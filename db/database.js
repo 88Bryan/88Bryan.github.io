@@ -13,6 +13,7 @@ const createAndInsertTable = async(query) => {
         await db.close();
     } catch (err) {
         console.error(err);
+        return { err }
     }
 }
 

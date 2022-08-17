@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="image.css">
-    <a href="https://88bryan.github.io./">
+    <a href="https://88bryan.github.io./"></a>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <img width="25px" height="30px" src="goat2.png" style="position:relative;top:-px">
             <a class="navbar-brand" style="color:#21ffa8" href="#">Go-4-Goat</a>
@@ -21,6 +21,12 @@
 
             <ul class="navbar-nav ml-auto">
                 <li class="nav-brand">
+                    <a class="nav-link" style="color:Red" href="/signup.html">Sign Up</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-brand">
                     <a class="nav-link" style="color:Red" href="#">FAQ(Hidden)</a>
                 </li>
             </ul>
@@ -31,14 +37,15 @@
                 </li>
             </ul>
         </nav>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 
 <body>
 
-    <body style="background-image:url('outdoors.jpg'); background-repeat: no-repeat; background-position:center; background-attachment: fixed; background-size: cover;">
-    </body>
+<!--    <body style="background-image:url('outdoors.jpg'); background-repeat: no-repeat; background-position:center; background-attachment: fixed; background-size: cover;">-->
+<!--    </body>-->
     <center>
         <h1>
             <font size=5 0></font>
@@ -46,14 +53,21 @@
         <img class="centerGoat" height="150px" src="goat2.png"></img>
         <h1 style="color:#21ffa8">Go-4-Goat</h1>
         <p style="color:#21ffa8">Please Log In or Sign Up!</p>
-        <form action="/action_page.php" method="post">
-            <label for="fname" style="color:#21ffa8">First name: </label>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname" style="color:#21ffa8">Last name: </label>
-            <input type="text" id="lname" name="lname"><br><br>
-            <input type="submit" value="Submit">
+        <form action="/" method="post">
+            <label for="email" style="color:#21ffa8">Email: </label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="password" style="color:#21ffa8">Password: </label>
+            <input type="password" id="password" name="password"><br><br>
+            <span id='signinError'></span><br>
+            <input type="submit" value="Submit" onclick() = "wrongLogin()">
         </form>
     </center>
+
+<script>
+    function wrongLogin(){
+        document.getElementById("signinError").innerHTML = "Hello World";
+    }
+</script>
 </body>
 
 </html>

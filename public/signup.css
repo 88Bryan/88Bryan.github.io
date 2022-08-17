@@ -1,0 +1,31 @@
+form
+{
+border: 2px solid black;
+border-radius: 10px;
+margin: auto;
+padding: 10px;
+}
+
+input{
+margin-top: 10px;
+}
+
+.pageHeader {
+padding-top: 200px;
+text-align: center
+}
+
+.signup input[name="email"]{
+width: auto;
+}
+
+@media (min-width:424px) {
+
+  .signup input[name="email"]{
+  width: 100%;
+  }
+
+
+}
+
+
