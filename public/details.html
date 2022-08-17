@@ -32,7 +32,7 @@
                 <a class="nav-link" style="color:#21ffa8" href="#">FAQ</a>
             </li>
             <li class="nav-brand">
-                <a class="nav-link" style="color:#21ffa8" href="#">Cart</a>
+                <a class="nav-link" style="color:#21ffa8" href="/cart">Cart</a>
             </li>
         </ul>
 
@@ -69,6 +69,7 @@
                     <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="saveToCart()">Add to cart</button>
                     <p>Need more information? Visit <a href="#">FAQ</a></p>
                     <br>
+                    <div id="alert"></div>
                 </div>
             </div>
         </div>
@@ -99,6 +100,15 @@
                 let farm = document.getElementById("farm");
                 farm.textContent = `Farm: ${goatData.farm}`;
             })
+
+        const saveToCart = () => {
+            let cartStr = JSON.stringify(goatData);
+            localStorage.setItem(id, cartStr);
+
+            let alerter = document.getElementById("alert");
+            alerter.className = "alert alert-success"
+            alerter.textContent = "Added to cart";
+        }
     </script>
 </body>
 
