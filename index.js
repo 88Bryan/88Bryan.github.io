@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public/'));
 
 const auth = require('./routes/auth');
-app.use('/auth', auth);
+app.use(auth);
 
 const goat = require('./routes/goat');
 app.use('/goat', goat);

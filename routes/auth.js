@@ -20,13 +20,13 @@ router.post('/', async(req, res) => {
         fs.readFile('./public/index.html', "utf8", function(err, data) {
             if (err) throw err;
                 var $ = cheerio.load(data);
-                $("#signinError").text("email already exist");
+                $("#signinError").text("incorrect email or password");
                 res.send($.html());
           });
     }
     else{
         console.log("success")
-        res.redirect("/");
+        res.redirect("/home.html");
     }
 
 
