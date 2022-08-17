@@ -32,7 +32,7 @@
                 <a class="nav-link" style="color:#21ffa8" href="#">FAQ</a>
             </li>
             <li class="nav-brand">
-                <a class="nav-link" style="color:#21ffa8" href="#">Cart</a>
+                <a class="nav-link" style="color:#21ffa8" href="/cart">Cart</a>
             </li>
         </ul>
 
@@ -60,15 +60,16 @@
                         Price
                     </p>
                     <ul class="list-styled">
-                        <li id="gender">Gender: Male</li>
-                        <li id="age">Age: 100</li>
-                        <li id="weight">Weight: 100 lbs</li>
-                        <li id="farm">Farm: Happy Farm</li>
+                        <li id="gender">Gender</li>
+                        <li id="age">Age</li>
+                        <li id="weight">Weight</li>
+                        <li id="farm">Farm</li>
                     </ul>
 
-                    <button type="button" class="btn btn-secondary btn-lg btn-block">Add to cart</button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block" onclick="saveToCart()">Add to cart</button>
                     <p>Need more information? Visit <a href="#">FAQ</a></p>
                     <br>
+                    <div id="alert"></div>
                 </div>
             </div>
         </div>
@@ -76,26 +77,38 @@
 
     <script>
         const url = window.location.href;
-        const id = url.charAt(url.length - 1)
+        const id = url.charAt(url.length - 1);
+        let goatData = {};
 
         fetch(`/goat/${id}`)
             .then((res) => res.json())
             .then((data) => {
+                goatData = {...data[0]
+                };
                 let img = document.getElementById("g_img");
-                img.setAttribute("src", `/${data[0].image}`);
+                img.setAttribute("src", `/${goatData.image}`);
                 let name = document.getElementById("name");
-                name.textContent = data[0].name;
+                name.textContent = goatData.name;
                 let price = document.getElementById("price");
-                price.textContent = `Price: $${data[0].price}`;
+                price.textContent = `Price: $${goatData.price}`;
                 let gender = document.getElementById("gender");
-                gender.textContent = `Gender: ${data[0].gender}`;
+                gender.textContent = `Gender: ${goatData.gender}`;
                 let age = document.getElementById("age");
-                age.textContent = `Age: ${data[0].age}`;
+                age.textContent = `Age: ${goatData.age}`;
                 let weight = document.getElementById("weight");
-                weight.textContent = `Weight: ${data[0].weight} lbs`;
+                weight.textContent = `Weight: ${goatData.weight} lbs`;
                 let farm = document.getElementById("farm");
-                farm.textContent = `Farm: ${data[0].farm}`;
+                farm.textContent = `Farm: ${goatData.farm}`;
             })
+
+        const saveToCart = () => {
+            let cartStr = JSON.stringify(goatData);
+            localStorage.setItem(id, cartStr);
+
+            let alerter = document.getElementById("alert");
+            alerter.className = "alert alert-success"
+            alerter.textContent = "Added to cart";
+        }
     </script>
 </body>
 
