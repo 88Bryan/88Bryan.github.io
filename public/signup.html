@@ -67,28 +67,6 @@
         document.getElementById("signupError").innerHTML = "Hello World";
     }
 
-    $(document).ready(function(){
-        $("form#signup").on("submit", function(e){
-            e.preventDefault();
-            var email = $("#email").val()
-            $.ajax({
-                url: "/signup",
-                method: "POST",
-                contentType: "application/json",
-                data: {
-                    em: email
-                },
-                success: function(res){
-                    alert(res.from)
-                }, error : function(err){
-                    console.log(err)
-                }
-
-            })
-        })
-    })
-
-
     function checkPassword() {
         let pass = document.getElementById('pass');
         let cfmpass = document.getElementById('cfmPass');

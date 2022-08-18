@@ -59,14 +59,5 @@ router.post('/signup', async(req, res) => {
         }
 })
 
-//router.post('/signup', function(req, res){
-//    var data = req.body;
-//    console.log(data);
-//
-//    httpMsgs.sendJSON(req, res, {
-//        from : "Server"
-//    })
-//})
-
 
 module.exports = router;
