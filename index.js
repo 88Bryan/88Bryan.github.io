@@ -20,6 +20,10 @@ app.get('/cart', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/cart.html'));
 })
 
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/home.html'));
+})
+
 app.listen(PORT, () => {
     console.log(`Listening at http://localhost:${PORT}`);
 });

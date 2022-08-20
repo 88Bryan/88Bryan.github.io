@@ -3,25 +3,25 @@
 
 <head>
     <link rel="stylesheet" href="transaction.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-	
+
 <body>
-	<div class="container p-2">
+    <div class="container p-2">
         <div class="card px-4 py-3" id="box">
-			<div class="row gx-3">
-				
-				<div class="col-12">
-				<a href="cart.html">
-					<button>
+            <div class="row gx-3">
+
+                <div class="col-12">
+                    <a href="/cart">
+                        <button>
                     <span class="ps-3">Go Back</span>
 					</button>
-				</a>
-				<p class="h8 py-3">Payment Details</p>
-				</div>
+                    </a>
+                    <p class="h8 py-3">Payment Details</p>
+                </div>
                 <div class="col-12">
                     <div class="d-flex flex-column">
                         <p class="text mb-1">Person Name</p>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-12">
                     <div class="d-flex flex-column">
-                        <p class="text mb-1">Card Number (Slowly)</p>
+                        <p class="text mb-1">Card Number</p>
                         <input class="form-control mb-3" type="text" maxlength="19" id="card" placeholder="####-####-####-####">
                     </div>
                 </div>
@@ -47,49 +47,60 @@
                     </div>
                 </div>
                 <div class="col-12">
-					<button class="btn btn-info" onclick="purchase()">Confirm Purchase</button>
+                    <button class="btn btn-info" onclick="purchase()">Confirm Purchase</button>
                 </div>
             </div>
         </div>
-    </div>
 </body>
 <script>
-	function purchase() {
-		if(document.getElementById("name").value.length == 0) {
-			alert("Please enter a valid name in the field");
-		} else {
-			if(document.getElementById("card").value.length != 19) {
-				alert("Please enter a valid card number in the field");
-			} else {
-				if(document.getElementById("card2").value.length != 7){
-					alert("Please enter a valid expiration date");
-				} else {
-					if(document.getElementById("card3").value.length !=3){
-						alert("Please enter a valid security code");
-					} else {
-						alert("Your goat will arrive to your mailing address within 2 weeks. Thank you for shopping with us!");
-						window.location= "home.html";
-					}
-				}
-			}
-		}
-	}
+    function purchase() {
+        if (document.getElementById("name").value.length == 0) {
+            alert("Please enter a valid name in the field");
+        } else {
+            if (document.getElementById("card").value.length != 19) {
+                alert("Please enter a valid card number in the field");
+            } else {
+                if (document.getElementById("card2").value.length != 7) {
+                    alert("Please enter a valid expiration date");
+                } else {
+                    if (document.getElementById("card3").value.length != 3) {
+                        alert("Please enter a valid security code");
+                    } else {
+                        let keys = Object.keys(localStorage);
+                        $.ajax({
+                            url: "/goat/delete",
+                            type: "POST",
+                            dataType: 'json',
+                            data: {
+                                "ids": keys.toString()
+                            },
+                            success: function(response) {
+                                console.log(response);
+                                alert("Your goat will arrive to your mailing address within 2 weeks. Thank you for shopping with us!");
+                                window.location = "/home";
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    }
 
-	var tele = document.querySelector('#card');
+    var tele = document.querySelector('#card');
 
-	tele.addEventListener('keyup', function(e){
-		if (event.key != 'Backspace' && (tele.value.length === 4 || tele.value.length === 9 || tele.value.length === 14)){
-			tele.value += '-';
-		}
-	});
+    tele.addEventListener('keyup', function(e) {
+        if (event.key != 'Backspace' && (tele.value.length === 4 || tele.value.length === 9 || tele.value.length === 14)) {
+            tele.value += '-';
+        }
+    });
 
-	var tele2 = document.querySelector('#card2');
+    var tele2 = document.querySelector('#card2');
 
-	tele2.addEventListener('keyup', function(e){
-		if (event.key != 'Backspace' && (tele2.value.length === 2)){
-			tele2.value += '-';
-		}
-	});
-
+    tele2.addEventListener('keyup', function(e) {
+        if (event.key != 'Backspace' && (tele2.value.length === 2)) {
+            tele2.value += '-';
+        }
+    });
 </script>
+
 </html>

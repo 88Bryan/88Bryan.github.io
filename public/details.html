@@ -82,7 +82,7 @@
         const id = url.charAt(url.length - 1);
         let goatData = {};
 
-        fetch(`/goat/${id}`)
+        fetch(`/goat/info/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 goatData = {...data[0]

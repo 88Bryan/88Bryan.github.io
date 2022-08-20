@@ -14,7 +14,7 @@ router.get('/all', async(req, res) => {
 
 })
 
-router.get('/:id', async(req, res) => {
+router.get('/info/:id', async(req, res) => {
     try {
         const result = await selectQuery(`SELECT * FROM goats WHERE id=${req.params.id}`);
         res.send(result);
@@ -55,15 +55,19 @@ router.post('/add', async(req, res) => {
     }
 })
 
-router.get("/delete/:id", async(req, res) => {
+router.post("/delete/", async(req, res) => {
     try {
-        const query = `DELETE FROM goats WHERE id=${req.params.id}`
+        const query = `DELETE FROM goats WHERE id IN (${req.body.ids})`;
         await createAndInsertTable(query);
         res.send({ "status": "Success" });
     } catch (e) {
         console.error(e);
         res.send({ "error": e });
     }
+})
+
+router.get('/checkout', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/transaction.html'));
 })
 
 module.exports = router;
