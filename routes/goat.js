@@ -55,4 +55,15 @@ router.post('/add', async(req, res) => {
     }
 })
 
+router.get("/delete/:id", async(req, res) => {
+    try {
+        const query = `DELETE FROM goats WHERE id=${req.params.id}`
+        await createAndInsertTable(query);
+        res.send({ "status": "Success" });
+    } catch (e) {
+        console.error(e);
+        res.send({ "error": e });
+    }
+})
+
 module.exports = router;

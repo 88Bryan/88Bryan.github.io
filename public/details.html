@@ -47,7 +47,9 @@
             <div class="col bg-light">
                 <div class="mt-3 p-3">
                     <h2 class="display-5" id="name">Name</h2>
-                    <p>From the farm: <a href="#">Happy Farm</a></p>
+                    <p>From the farm:
+                        <a href="#" id="farm_link"></a>
+                    </p>
                     <p>
                         <i class="fas fa-solid fa-star"></i>
                         <i class="fas fa-solid fa-star"></i>
@@ -99,6 +101,8 @@
                 weight.textContent = `Weight: ${goatData.weight} lbs`;
                 let farm = document.getElementById("farm");
                 farm.textContent = `Farm: ${goatData.farm}`;
+                let farm_link = document.getElementById("farm_link");
+                farm_link.textContent = goatData.farm;
             })
 
         const saveToCart = () => {
