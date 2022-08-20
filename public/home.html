@@ -10,20 +10,20 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-			
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" style="color:#21ffa8" href="#">Log-out<span class="sr-only"></span></a>
                 </li>
             </ul>
-			<!--
+            <!--
 			<div class="mx-auto order-0">
 				<a class="navbar-brand mx-auto" style="color:Red" href="#">Home Page (current)</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
 				<span class="navbar-toggler-icon"></span>
 				</button>
 			</div> -->
-			
+
             <ul class="nav justify-content-end">
                 <li class="nav-brand">
                     <a class="nav-link" style="color:#21ffa8" href="#">FAQ</a>
@@ -32,154 +32,139 @@
                     <a class="nav-link" style="color:#21ffa8" href="#">Cart</a>
                 </li>
             </ul>
-			
+
         </nav>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
-	<body>
-		<br>
-		<center><h4>Welcome to our Main Page!</h4>
-		<h5>Please select any goats that interest you from our headlines!</h5></center>
-	  
-	  <!--<style>
-		h6{text-align: center;}
-	  </style>
-	  -->
-	  
-	  <main role="main">
-      <div class="album py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="goat_1.jpg" alt="Goat 1">
-                <div class="card-body">
-                  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Name: Clarence <!--<h6> Clarence </h6>--> </li>
-					<li class="list-group-item">Price: $1,500</li>
-					<li class="list-group-item">Age:  6</li>
-				  </ul>
-				  <br>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <input type="button" class="btn btn-outline-success" onclick="goat1Button()" value="Purchase" id="goat1"></input>
-					  <input type="button" class="btn btn-outline-danger" onclick="undo1()" value="Reset Status" id="reset1"></button>
-                    </div>
-                    <small class="text-muted">Goat 1</small>
-                  </div>
-                </div>
-              </div>
+
+<body>
+    <br>
+    <center>
+        <h4>Welcome to our Main Page!</h4>
+        <h5>Please select any goats that interest you from our headlines!</h5>
+    </center>
+
+    <main role="main">
+        <div class="album py-5">
+            <div class="container" id="container">
+
             </div>
-			
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="goat_2.jpg" alt="Goat 2">
-                <div class="card-body">
-                  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Name:  Rose</li>
-					<li class="list-group-item">Price:  $2,500</li>
-					<li class="list-group-item">Age:  12</li>
-				  </ul>
-				  <br>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <input type="button" class="btn btn-outline-success" onclick="goat2Button()" value="Purchase" id="goat2"></input>
-					  <input type="button" class="btn btn-outline-danger" onclick="undo2()" value="Reset Status" id="reset2"></button>
-                    </div>
-                    <small class="text-muted">Goat 2</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="goat_3.jpg" alt="Goat 3">
-                <div class="card-body">
-                  <ul class="list-group list-group-flush">
-					<li class="list-group-item">Name:  Rosario</li>
-					<li class="list-group-item">Price:  $1,250</li>
-					<li class="list-group-item">Age: 3</li>
-				  </ul>
-				  <br>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <input type="button" class="btn btn-outline-success" onclick="goat3Button()" value="Purchase" id="goat3"></input>
-					  <input type="button" class="btn btn-outline-danger" onclick="undo3()" value="Reset Status" id="reset3"></button>
-                    </div>
-                    <small class="text-muted">Goat 3</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </main>
-	</body>
-	
-	<script>
-		function goat1Button() {
+</body>
+
+<script>
+    let row = $("<div>").addClass("row");
+    $.get("/goat/all", (data, status) => {
+        data.forEach(d => {
+            let card = $("<div>").addClass("col-md-4").append(
+                $("<div>").addClass("card mb-4 box-shadow").append(
+                    $("<img>").addClass("card-img-top").attr("src", `/${d.image}`)
+                ).append(
+                    $("<div>").addClass("card-body").append(
+                        $("<ul>").addClass("list-group list-group-flush").append(
+                            $("<li>").addClass("list-group-item").text(`Name: ${d.name}`)
+                        ).append(
+                            $("<li>").addClass("list-group-item").text(`Price: $${d.price}`)
+                        )
+                    ).append($("<br>")).append(
+                        $("<div>").addClass("d-flex justify-content-between align-items-center").append(
+                            $("<div>").addClass("btn-group").append(
+                                $("<input>").attr("type", "button").addClass("btn btn-outline-success").attr("value", "View details").click(() => {
+                                    window.location = `/goat/details/${d.id}`;
+                                })
+                            ).append(
+                                $("<input>").attr("type", "button").addClass("btn btn-outline-danger").attr("value", "Add to cart").click(() => {
+                                    let cartStr = JSON.stringify(d);
+                                    localStorage.setItem(d.id, cartStr);
+                                    alert("Added to cart");
+                                })
+                            )
+                        )
+                    )
+                )
+            )
+
+            row.append(card);
+        });
+        $("#container").append(row);
+    })
+
+    const saveToCart = () => {
+        let cartStr = JSON.stringify(goatData);
+        localStorage.setItem(id, cartStr);
+
+        let alerter = document.getElementById("alert");
+        alerter.className = "alert alert-success"
+        alerter.textContent = "Added to cart";
+    }
+
+    function goat1Button() {
+
+        var elem = document.getElementById("goat1");
+        if (elem.value == "Purchase") {
+            elem.value = "Placed in Interest";
+        } else {
+            elem.value = "Placed in Interest";
+        }
+
+        /* Used for undo attribute being set a hidden default
+        let element = document.getElementById("reset1");
+        let hidden = element.getAttribute("hidden");
 			
-			var elem = document.getElementById("goat1");
-			if (elem.value=="Purchase"){ 
-				elem.value = "Placed in Interest";
-			} else {
-				elem.value = "Placed in Interest";
-			}
-			
-			/* Used for undo attribute being set a hidden default
-			let element = document.getElementById("reset1");
-			let hidden = element.getAttribute("hidden");
-			
-			if (!hidden) {
-				element.setAttribute("hidden", "hidden");
-			} else {
-				element.removeAttribute("hidden");
-			} */
-		}
-		
-		function undo1(){
-			var elem = document.getElementById("goat1");
-			if (elem.value=="Placed in Interest"){ 
-				elem.value = "Purchase";
-			} else {
-				elem.value = "Purchase";
-			}
-		}
-		
-		function goat2Button() {
-			//Include an undo?
-			var elem = document.getElementById("goat2");
-			if (elem.value=="Purchase") elem.value = "Placed in Interest";
-			else {elem.value = "Placed in Interest";}
-		}
-		
-		function undo2(){
-			var elem = document.getElementById("goat2");
-			if (elem.value=="Placed in Interest"){ 
-				elem.value = "Purchase";
-			} else {
-				elem.value = "Purchase";
-			}
-		}
-		
-		function goat3Button() {
-			//Include an undo?
-			var elem = document.getElementById("goat3");
-			if (elem.value=="Purchase") elem.value = "Placed in Interest";
-			else {elem.value = "Placed in Interest";}
-		}
-		
-		function undo3(){
-			var elem = document.getElementById("goat3");
-			if (elem.value=="Placed in Interest"){ 
-				elem.value = "Purchase";
-			} else {
-				elem.value = "Purchase";
-			}
-		}
-		
-	</script>
-	
+        if (!hidden) {
+        	element.setAttribute("hidden", "hidden");
+        } else {
+        	element.removeAttribute("hidden");
+        } */
+    }
+
+    function undo1() {
+        var elem = document.getElementById("goat1");
+        if (elem.value == "Placed in Interest") {
+            elem.value = "Purchase";
+        } else {
+            elem.value = "Purchase";
+        }
+    }
+
+    function goat2Button() {
+        //Include an undo?
+        var elem = document.getElementById("goat2");
+        if (elem.value == "Purchase") elem.value = "Placed in Interest";
+        else {
+            elem.value = "Placed in Interest";
+        }
+    }
+
+    function undo2() {
+        var elem = document.getElementById("goat2");
+        if (elem.value == "Placed in Interest") {
+            elem.value = "Purchase";
+        } else {
+            elem.value = "Purchase";
+        }
+    }
+
+    function goat3Button() {
+        //Include an undo?
+        var elem = document.getElementById("goat3");
+        if (elem.value == "Purchase") elem.value = "Placed in Interest";
+        else {
+            elem.value = "Placed in Interest";
+        }
+    }
+
+    function undo3() {
+        var elem = document.getElementById("goat3");
+        if (elem.value == "Placed in Interest") {
+            elem.value = "Purchase";
+        } else {
+            elem.value = "Purchase";
+        }
+    }
+</script>
+
 </html>
