@@ -79,7 +79,7 @@
 
     <script>
         const url = window.location.href;
-        const id = url.charAt(url.length - 1);
+        const id = url.split("/").splice(-1)[0];
         let goatData = {};
 
         fetch(`/goat/info/${id}`)
