@@ -11,7 +11,7 @@ margin-top: 10px;
 }
 
 .pageHeader {
-padding-top: 200px;
+padding-top: 100px;
 text-align: center
 }
 
@@ -24,7 +24,6 @@ width: auto;
   .signup input[name="email"]{
   width: 100%;
   }
-
 
 }
 
